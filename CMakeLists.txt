@@ -76,7 +76,7 @@ else()
 endif()
 
 add_subdirectory(src)
-add_subdirectory(gtest)
+
 
 add_executable(intro main.cpp)
 target_compile_features(intro PRIVATE cxx_std_17)
@@ -87,6 +87,8 @@ enable_testing()
 add_executable(tester tester.cpp)
 target_link_libraries(tester --coverage)
 add_test(Tester tester)
+
+add_subdirectory(gtest)
 
 #file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/gtest/*.cc)
 
