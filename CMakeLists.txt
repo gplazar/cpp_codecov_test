@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.8)
 
 
 # Download and unpack googletest at configure time
-configure_file(gtest/CMakeLists.txt.in googletest-download/CMakeLists.txt)
+configure_file(gtest-download/CMakeLists.txt.in googletest-download/CMakeLists.txt)
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
   RESULT_VARIABLE result
   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-download )
@@ -75,6 +75,9 @@ else()
                          )
 endif()
 
+add_subdirectory(src)
+add_subdirectory(gtest)
+
 add_executable(intro main.cpp)
 target_compile_features(intro PRIVATE cxx_std_17)
 target_link_libraries(intro --coverage)
@@ -85,9 +88,9 @@ add_executable(tester tester.cpp)
 target_link_libraries(tester --coverage)
 add_test(Tester tester)
 
-file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/gtest/*.cc)
+#file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/gtest/*.cc)
 
-add_executable(example ${TEST_SRC_FILES})
-target_link_libraries(example gtest_main --coverage)
-add_test(NAME example_test COMMAND example)
+#add_executable(example ${TEST_SRC_FILES})
+#target_link_libraries(example gtest_main --coverage)
+#add_test(NAME example_test COMMAND example)
 
