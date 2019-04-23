@@ -3,6 +3,7 @@ add_executable(
     example_add.cpp
     example_subtract.cpp
     example_multiply.cpp
+    example_divide.cpp
     )
 
 target_link_libraries(
