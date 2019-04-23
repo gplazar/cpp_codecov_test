@@ -5,3 +5,4 @@
 
 
 https://img.shields.io/codecov/c/github/gplazar/cpp_codecov_test/gtest.svg?style=popout
+https://img.shields.io/bower/l/f.svg?style=for-the-badge
